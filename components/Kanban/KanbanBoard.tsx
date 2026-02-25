@@ -13,11 +13,35 @@ import Divider from "@mui/material/Divider";
 
 export default function KanbanBoard({ tasks }: { tasks: any[] }) {
   const queryClient = useQueryClient();
+  
 
-  const mutation = useMutation({
+const mutation = useMutation({
     mutationFn: (updates: { id: string; column?: string; order?: number }) =>
       apiClient.put(`/tasks/${updates.id}`, updates),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
+    
+    // 1. أضف الـ onMutate لتحديث الـ UI فوراً
+    onMutate: async (newUpdate) => {
+      await queryClient.cancelQueries({ queryKey: ["tasks"] });
+      const previousTasks = queryClient.getQueryData(["tasks"]);
+
+      queryClient.setQueryData(["tasks"], (old: any[]) => {
+        return old.map((task) =>
+          task.id === newUpdate.id ? { ...task, ...newUpdate } : task
+        );
+      });
+
+      return { previousTasks };
+    },
+
+    // 2. لو حصل خطأ، نرجع الداتا القديمة
+    onError: (err, newUpdate, context) => {
+      queryClient.setQueryData(["tasks"], context?.previousTasks);
+    },
+
+    // 3. تحديث نهائي بعد نجاح العملية
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+    },
   });
 
   const columns = ["backlog", "in_progress", "review", "done"];
