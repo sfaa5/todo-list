@@ -40,7 +40,7 @@ export default function TaskCard({ task, onClick, onDelete }: TaskCardProps) {
         sx={{ cursor: "grab", pb: 1 ,p:2}}
       >
         <Typography variant="subtitle2" sx={{fontWeight:"600"}}>{task.title}</Typography>
-        <Typography variant="body2" color="text.secondary" noWrap>
+        <Typography variant="body2" color="text.secondary" >
           {task.description}
         </Typography>
       </CardContent>

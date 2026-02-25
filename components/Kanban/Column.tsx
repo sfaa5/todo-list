@@ -39,6 +39,7 @@ export default function Column({
         p: 2,
         bgcolor: "#EBF0F0",
         minHeight: 500,
+        maxWidth: "25%",
         display: "flex",
         flexDirection: "column",
         borderRadius: 3,

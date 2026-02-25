@@ -1,45 +1,23 @@
 {
   "tasks": [
     {
-      "id": "2",
-      "title": "Setup React Query 2",
-      "description": "Configure query client and providers test",
-      "column": "backlog",
-      "order": 1
+      "title": "ff",
+      "description": "ff",
+      "id": "4"
     },
     {
-      "id": "3",
-      "title": "Implement Drag and Drop",
-      "description": "Use dnd-kit for column interaction",
+      "title": "trf",
+      "description": "ff",
+      "id": "5"
+    },
+    {
+      "id": "84b0",
       "column": "done",
-      "order": 1
+      "order": 0
     },
     {
-      "id": "4",
-      "title": "Deploy to Vercel",
-      "description": "Ensure build succeeds and env vars are set",
+      "id": "92c4",
       "column": "review",
-      "order": 0
-    },
-    {
-      "id": "5",
-      "title": "Test Application",
-      "description": "Write unit and integration tests",
-      "column": "done",
-      "order": 0
-    },
-    {
-      "id": "96cf",
-      "title": "test",
-      "description": "ttttt",
-      "column": "in_progress",
-      "order": 0
-    },
-    {
-      "id": "3452",
-      "title": "testtt",
-      "description": "testttttttt",
-      "column": "backlog",
       "order": 0
     }
   ]
